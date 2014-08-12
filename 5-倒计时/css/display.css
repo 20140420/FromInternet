@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif,"宋体";}
+/* colockbox */
+.box_S{width:620px;height:63px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_PANDA_S_WIN.png) no-repeat;}
+.box{width:1000px;height:200px;margin:120px auto;background:url(../images/bomb.png) no-repeat;}
+.box_SWALLOW{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_SWALLOW_WIN.png) no-repeat;}
+.box_PIGEON{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_PIGEON_WIN.png) no-repeat;}
+.box3{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_PEACOCK_WIN.png) no-repeat;}
+.box4{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_EAGLE_WIN.png) no-repeat;}
+.box5{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_LION_WIN.png) no-repeat;}
+.box6{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_PANDA_WIN.png) no-repeat;}
+.box7{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_MONKEY_WIN.png) no-repeat;}
+.box8{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_RABBIT_WIN.png) no-repeat;}
+.box9{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_GOLD_SHARK_WIN.png) no-repeat;}
+.box10{width:1000px;height:200px;margin:120px auto;background:url(../images/bomb.png) no-repeat;}
+.box11{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_SLIVER_SHARK_WIN.png) no-repeat;}
+#demos1{width:124px;background-position:0px 0;}
+#demos2{width:124px;background-position:-124px 0;}
+#demos3{width:124px;background-position:-248px 0;}
+#demos4{width:124px;background-position:-372px 0;}
+#demos5{width:124px;background-position:-496px 0;}
+#demo1{width:200px;background-position:0px 0;}
+#demo2{width:200px;background-position:-200px 0;}
+#demo3{width:200px;background-position:-400px 0;}
+#demo4{width:200px;background-position:-600px 0;}
+#demo5{width:200px;background-position:-800px 0;}

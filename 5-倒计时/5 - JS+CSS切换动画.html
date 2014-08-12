@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JS和CSS动画</title>
+<meta name="description" content="JS和CSS动画。" />
+<script type="text/javascript">
+function change () 
+{
+	var num = 5 ;//组成动画的5张图片
+	var obj = document.getElementById("demo3");
+
+	var n = num;
+	//alert("查看n： " + n);
+	var timer = setInterval(function(){
+		if( num > 0)
+		{
+			obj.id = "demo"+num;
+			num -= 1;
+			//alert("查看obj.id： " + obj.id);
+		} else {
+			num = n;
+		}		
+	}, 150);
+}
+function changeS (obj,num) 
+{
+	var n = num;
+	//alert("查看n： " + n);
+	var timer = setInterval(function(){
+	if( num > 0)
+		{
+			obj.id = "demos"+num;
+			num -= 1;
+			//alert("查看obj.id： " + obj.id);
+		} else {
+			num = n;
+		}		
+	}, 150);
+}
+function prizeItem()
+{
+	var prize = "GOLD_SHARK";
+
+	//alert("查看prize： " + prize);
+	changeClass(prize);
+}
+function changeClass(prize)
+{
+	var a=document.getElementById("demo3");
+ 	a.className = 'box_'+prize;
+ 	alert("查看a.className： " + a.className);
+}
+window.onload=function()
+{
+	prizeItem();
+	change();
+}
+</script>
+</head>
+<body>
+<style type="text/css">
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif,"宋体";}
+/* colockbox */
+.box_S{width:620px;height:63px;margin:120px auto;background:url(images/NewSharkBattle_WIN_PANDA_S_WIN.png) no-repeat;}
+.box_SWALLOW{width:1000px;height:200px;margin:120px auto;background:url(images/NewSharkBattle_WIN_SWALLOW_WIN.png) no-repeat;}
+.box_PIGEON{width:1000px;height:200px;margin:120px auto;background:url(images/NewSharkBattle_WIN_PIGEON_WIN.png) no-repeat;}
+.box_PEAFOWL{width:1000px;height:200px;margin:120px auto;background:url(images/NewSharkBattle_WIN_PEACOCK_WIN.png) no-repeat;}
+.box_EAGLE{width:1000px;height:200px;margin:120px auto;background:url(images/NewSharkBattle_WIN_EAGLE_WIN.png) no-repeat;}
+.box_LION{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_LION_WIN.png) no-repeat;}
+.box_PANDA{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_PANDA_WIN.png) no-repeat;}
+.box_MONKEY{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_MONKEY_WIN.png) no-repeat;}
+.box_RABBIT{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_RABBIT_WIN.png) no-repeat;}
+.box_GOLD_SHARK{width:1000px;height:200px;margin:120px auto;background:url(images/NewSharkBattle_WIN_GOLD_SHARK_WIN.png) no-repeat;}
+.box_BOMB{width:1000px;height:200px;margin:120px auto;background:url(../images/bomb.png) no-repeat;}
+.box_SILVER_SHARK{width:1000px;height:200px;margin:120px auto;background:url(../images/NewSharkBattle_WIN_SLIVER_SHARK_WIN.png) no-repeat;}
+#demos5{width:124px;background-position:0px 0;}
+#demos4{width:124px;background-position:-124px 0;}
+#demos3{width:124px;background-position:-248px 0;}
+#demos2{width:124px;background-position:-372px 0;}
+#demos1{width:124px;background-position:-496px 0;}
+#demo5{width:200px;background-position:0px 0;}
+#demo4{width:200px;background-position:-200px 0;}
+#demo3{width:200px;background-position:-400px 0;}
+#demo2{width:200px;background-position:-600px 0;}
+#demo1{width:200px;background-position:-800px 0;}
+
+</style>
+<div class="box_S" id="demos3" onclick="changeS(this,5);">
+</div>
+<div class="box" id="demo3">
+</div>
+</body>
+</html>
