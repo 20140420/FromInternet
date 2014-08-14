@@ -1,0 +1,61 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery倒计时插件可自定义多个倒计时间展示</title>
+<meta name="description" content="jquery倒计时插件设置多个自定义倒计时时间，任意设置天、小时、分钟、秒倒计时间功能。jQuery下载。" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	countAnimation();
+});
+//最后十秒倒计时动画
+function countAnimation()
+{
+	var num = 10 ;//组成动画的一张图片分几部分
+	var n = num ;
+	var obj = document.getElementById("demo3");
+	//alert("查看n： " + n);
+	var timer = null;
+	timer = setInterval(function(){
+		if( num > 0)
+		{
+			obj.id = "time"+(num-1);
+			obj.className = 'box_time';
+			num -= 1;
+			//alert("查看obj.id： " + obj.id);
+		} else {
+			//clearInterval(timer);
+			num = n ;
+		}	
+	}, 1000);
+}
+</script>
+</head>
+
+<body>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif,"宋体";}
+/* colockbox */
+.box_time{width:160px;height:24px;margin:0px 165px;overflow:hidden;background:url(images/NewSharkBattle_TIME_NUMBER_MAIN.png) no-repeat;}
+#time0{width:16px;background-position:0px 0;}
+#time1{width:16px;background-position:-16px 0;}
+#time2{width:16px;background-position:-32px 0;}
+#time3{width:16px;background-position:-48px 0;}
+#time4{width:16px;background-position:-64px 0;}
+#time5{width:16px;background-position:-80px 0;}
+#time6{width:16px;background-position:-96px 0;}
+#time7{width:16px;background-position:-112px 0;}
+#time8{width:16px;background-position:-128px 0;}
+#time9{width:16px;background-position:-144px 0;}
+</style>
+
+<div class="box" id="demo3">
+</div>
+
+</body>
+</html>
