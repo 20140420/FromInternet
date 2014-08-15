@@ -7,9 +7,9 @@ $(function()
 	var time_display= 3;//展示时长 后期由服务器取得
 	var time_wait= 2;//等待时长 后期由服务器取得
 	var circle_num= 4;//转盘圈数 后期由服务器取得
-	var time_cycle= 28;//一个周期时长 后期由服务器取得,展示-等待-观察-下注-转盘
+	var time_cycle= 32;//一个周期时长 后期由服务器取得,展示-等待-观察-下注-转盘
 	var prize = "SILVER_SHARK";
-	var stepTime = 40;
+	var stepTime = 80;
 
 	//var circle_speed= (28*80*circle_num)/time_spend;//计算转盘速度,28个跳格，setInterval()频率80毫秒
 	dial(time_cycle,time_display,time_wait,time_observe,time_bet,
@@ -32,7 +32,7 @@ function dial(time_length,time_display,time_wait,time_observe,time_bet,
 	alert("给转盘时长： " + time_spend);
 	timeL = time_length - time_spend;//转盘之后剩余时间
 	if(timeL < (time_wait+time_observe+time_bet)){
-		alert("转盘花费时间太长，请缩短转盘步长时间或通过增加展示、预设转盘时间来增加周期。");
+		alert("转盘花费时间太长，请缩短转盘步长时间或增加周期时长。");
 	}
 	timer= setInterval(function(){
 		if(time_length > 0){//一个周期
