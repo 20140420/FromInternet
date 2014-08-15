@@ -8,12 +8,13 @@ $(function()
 	var time_wait= 2;//等待时长 后期由服务器取得
 	var circle_num= 4;//转盘圈数 后期由服务器取得
 	var time_cycle= 28;//一个周期时长 后期由服务器取得,展示-等待-观察-下注-转盘
-	var prize = "MONKEY";
-	var stepTime = 80;
-	
+	var prize = "SILVER_SHARK";
+	var stepTime = 40;
+
 	//var circle_speed= (28*80*circle_num)/time_spend;//计算转盘速度,28个跳格，setInterval()频率80毫秒
 	dial(time_cycle,time_display,time_wait,time_observe,time_bet,
 			circle_num,stepTime,prize,"#demo04 .second");//变量在gdial.jsp页面定义
+	//dialAnimation(circle_num, prize, stepTime);//转盘效果
 });
 function countdown(time_length,second_elem)//倒计时
 {
@@ -25,29 +26,30 @@ function dial(time_length,time_display,time_wait,time_observe,time_bet,
 {
 	//alert("查看个时长： " + time_length + time_spend +time_display+time_wait+time_observe+time_bet);
 	var timer = null;
+	time_circle = dialAnimation(circle_num, prize, stepTime);//转盘效果
+	alert("转盘需毫秒时长： " + time_circle);
+	time_spend = Math.floor(time_circle/1000)+2;//给转盘时长
+	alert("给转盘时长： " + time_spend);
+	timeL = time_length - time_spend;//转盘之后剩余时间
+	if(timeL < (time_wait+time_observe+time_bet)){
+		alert("转盘花费时间太长，请缩短转盘步长时间或通过增加展示、预设转盘时间来增加周期。");
+	}
 	timer= setInterval(function(){
 		if(time_length > 0){//一个周期
-			if(time_length > 10){//最后十秒
-				if(time_length > (time_observe+ time_bet+ time_display+ time_wait)){//转盘
-					dialAnimation(circle_num, prize, stepTime);//转盘效果
-					countdown(time_length,second_elem);
-					time_length -=1;
+			countdown(time_length,second_elem);
+			time_length -=1;
+			if(time_length > 9){//最后十秒
+				if(time_length > timeL){//转盘
+					//alert("转盘结束5 ");
 				} else if(time_length > (time_observe+ time_bet+ time_wait)){//展示
 					prizeAnimation(time_display, prize);//奖项动画
-					countdown(time_length,second_elem);
-					time_length -=1;
 				} else if(time_length > (time_observe+ time_bet)){//等待
-					countdown(time_length,second_elem);
-					time_length -=1;
+					//alert("等待结束2 ");
 				} else {//观察
 					observePrize();
-					countdown(time_length,second_elem);
-					time_length -=1;
 				}
 			} else {//最后10秒钟
-				countAnimation(10);				
-				countdown(time_length,second_elem);
-				time_length -= 1;
+				countAnimation(10);
 			}
 		} else {
 			clearInterval(timer);
@@ -67,7 +69,8 @@ function dialAnimation(circleNum, prizeItem, stepLength){
 	var allList = [];
 
 	var stopPos = stopPosition(prizeItem);
-	alert("查看stopPos： " + stopPos);
+	//("查看stopPos： " + stopPos);
+	var circleSpendTime =  (circleNum*28 + stopPos)*stepLength;//转盘花费时间
 	$.each(hor, function(i, item){//确定了从左上角开始
 		allList.push(item);
 	});
@@ -98,6 +101,7 @@ function dialAnimation(circleNum, prizeItem, stepLength){
 			$(allList[index]).addClass("alpha");//添加透明度设置
 		}
 	}, stepLength);
+	return circleSpendTime;
 }
 //观察最近几场的出奖奖项
 function observePrize()
