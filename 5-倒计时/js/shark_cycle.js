@@ -7,7 +7,7 @@ $(function()
 	var time_display= 3;//展示时长 后期由服务器取得
 	var time_wait= 2;//等待时长 后期由服务器取得
 	var circle_num= 4;//转盘圈数 后期由服务器取得
-	var time_cycle= 37;//一个周期时长 后期由服务器取得,展示-等待-观察-下注-转盘
+	var time_cycle= 35;//一个周期时长 后期由服务器取得,展示-等待-观察-下注-转盘
 	var prize = "SILVER_SHARK";
 	//var prize = "MONKEY";
 	var stepTime = 80;
@@ -42,8 +42,7 @@ function dial(time_length,time_display,time_wait,time_observe,time_bet,
 	timer= setInterval(function(){
 		if(time_length > 0){//一个周期
 			countdown(time_length,second_elem);
-			time_length -=1;
-			if(time_length > 9){//最后十秒之前的过程
+			if(time_length > 10){//最后十秒之前的过程
 				if(time_length > (time_observe+ time_bet)){//观察、下注之前
 					if(time_length > (time_observe+ time_bet+ time_wait)){//观察、下注、等待之前
 						if(time_length > (time_observe+ time_bet+ time_wait + time_display)){//观察、下注、等待、展示之前
@@ -60,6 +59,7 @@ function dial(time_length,time_display,time_wait,time_observe,time_bet,
 			} else {//最后10秒钟
 				countAnimation(10);
 			}
+			time_length -=1;
 		} else {
 			clearInterval(timer);
 			document.panelform.submit();//下注结束后提交筹码
