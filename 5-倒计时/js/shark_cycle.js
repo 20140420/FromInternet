@@ -1,7 +1,7 @@
 /* 游戏周期流程 */
 $(function()
 {
-	/* 变量在gdial.jsp页面定义
+	/* 变量在gdial.jsp页面定义 */
 	var time_observe= 6; //观察时长 后期由服务器取得
 	var time_bet= 12;//下注时长 后期由服务器取得
 	var time_display= 3;//展示时长 后期由服务器取得
@@ -10,7 +10,7 @@ $(function()
 	var time_cycle= 28;//一个周期时长 后期由服务器取得,展示-等待-观察-下注-转盘
 	var prize = "MONKEY";
 	var stepTime = 80;
-	*/
+	
 	//var circle_speed= (28*80*circle_num)/time_spend;//计算转盘速度,28个跳格，setInterval()频率80毫秒
 	dial(time_cycle,time_display,time_wait,time_observe,time_bet,
 			circle_num,stepTime,prize,"#demo04 .second");//变量在gdial.jsp页面定义
