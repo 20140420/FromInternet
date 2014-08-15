@@ -7,7 +7,7 @@ $(function()
 	var time_display= 3;//展示时长 后期由服务器取得
 	var time_wait= 2;//等待时长 后期由服务器取得
 	var circle_num= 4;//转盘圈数 后期由服务器取得
-	var time_cycle= 35;//一个周期时长 后期由服务器取得,展示-等待-观察-下注-转盘
+	var time_cycle= 37;//一个周期时长 后期由服务器取得,展示-等待-观察-下注-转盘
 	var prize = "SILVER_SHARK";
 	//var prize = "MONKEY";
 	var stepTime = 80;
