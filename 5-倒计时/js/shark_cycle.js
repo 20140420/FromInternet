@@ -11,6 +11,8 @@ $(function()
 	var prize = "SILVER_SHARK";
 	//var prize = "MONKEY";
 	var stepTime = 80;
+	//var numPrizeList = numPrizeList[0].prize;
+	var numPrizeList = "SILVER_SHARK";
 
 	//var circle_speed= (28*80*circle_num)/time_spend;//计算转盘速度,28个跳格，setInterval()频率80毫秒
 	dial(time_cycle,time_display,time_wait,time_observe,time_bet,
@@ -29,12 +31,12 @@ function dial(time_length,time_display,time_wait,time_observe,time_bet,
 	//alert("查看个时长： " + time_length + time_spend +time_display+time_wait+time_observe+time_bet);
 	var timer = null;
 	time_circle = dialAnimation(circle_num, prize, stepTime);//转盘效果需毫秒时长
-	alert("转盘需毫秒时长： " + time_circle);
+	//alert("转盘需毫秒时长： " + time_circle);
 	time_spend = Math.floor(time_circle/1000)+1;//给转盘时长
 	//alert("给转盘时长： " + time_spend);
 	var timeL = time_length - (time_observe+ time_bet+ time_wait + time_display);//设置留给转盘的时间
 	var observeAnd = time_observe+ time_bet - 10;
-	alert("设置留给转盘的时间: " + timeL);
+	//alert("设置留给转盘的时间: " + timeL);
 	if(timeL < time_spend){
 		alert("转盘花费时间太长，请缩短转盘步长时间或增加周期时长。");
 	}
@@ -55,12 +57,17 @@ function dial(time_length,time_display,time_wait,time_observe,time_bet,
 							}
 						} else {//展示
 							//prizeAnimation(time_display, prize);//奖项动画
+							time_display -= 1;
+							if(time_display == 0){
+								//alert("查看time_display：调用等待"+time_display);
+								//countAnimation(2);//因为奖项未及时回复DIV的id，所以出错
+							}
 						}
 					} else {//等待
 						//alert("等待结束2 ");
 						time_wait -= 1;
 						if(time_wait == 0){
-							observePrize();
+							observePrize(prize);
 						}
 					}
 				} else {//观察+下注
@@ -80,6 +87,25 @@ function dial(time_length,time_display,time_wait,time_observe,time_bet,
 			//time_length = (time_spend+time_observe+ time_bet+ time_display+ time_wait);
 		}
 	},1000);
+}
+//观察最近几场的出奖奖项
+function observePrize(prize)
+{
+	//alert("观察下注 ");
+	var obj = document.getElementById("observe");
+	//创建一个div  
+    var my1 = document.createElement("li");
+    obj.appendChild(my1);
+    my1.className = "box_observe";
+    my1.id = "observe_" + prize;
+    var my2 = document.createElement("li");
+    obj.appendChild(my2);
+    my2.className = "box_observe";
+    my2.id = "observe_" + prize;
+    var my3 = document.createElement("li");
+    obj.appendChild(my3);
+    my3.className = "box_observe";
+    my3.id = "observe_" + prize;
 }
 //转盘动画效果
 function dialAnimation(circleNum, prizeItem, stepLength){
@@ -131,11 +157,6 @@ function dialAnimation(circleNum, prizeItem, stepLength){
 	}, stepLength);
 	return circleSpendTime;
 }
-//观察最近几场的出奖奖项
-function observePrize()
-{
-	
-}
 //最后十秒倒计时动画
 function countAnimation(lastTenSec)
 {
@@ -148,7 +169,7 @@ function countAnimation(lastTenSec)
 			clearInterval(timerCountdown);
 			obj.className = 'box';
 			obj.id = "demo1";			
-		} else {			
+		} else {		
 			obj.id = "time"+ (lastTenSec-1);
 			obj.className = 'box_time';
 			lastTenSec -= 1;
