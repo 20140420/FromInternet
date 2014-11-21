@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery合作伙伴左右滚动特效 - A5源码</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.min.js" language="javascript" type="text/javascript"></script>
+<script language="javascript" type="text/javascript" src="js/ss.js"></script>
+</head>
+<body>
+<div style="width:685px; margin:0 auto">
+  <!--<div class="mr_t1 mt14">
+     <div class="mr_t1name">
+      <img src="images/mt_ico6.jpg" />合作伙伴
+     </div>
+  </div>-->
+  <div class="mr_frbox">
+    <img class="mr_frBtnL prev" src="images/mfrL.jpg" width="28" height="46" />
+    <div class="mr_frUl">
+      <ul>
+       <li><a href="http://sc.admin5.com" target="_blank"><img src="images/mfr_1.jpg" width="123" height="52" /></a><a href="http://sc.admin5.com" target="_blank"><img src="images/mfr_2.jpg" width="123" height="52" /></a></li>
+       <li><a href="http://sc.admin5.com" target="_blank"><img src="images/mfr_3.jpg" width="123" height="52" /></a><a href="http://sc.admin5.com" target="_blank"><img src="images/mfr_6.jpg" width="123" height="52" /></a></li>
+       <li><a href="http://sc.admin5.com" target="_blank"><img src="images/mfr_4.jpg" width="123" height="52" /></a><a href="http://sc.admin5.com" target="_blank"><img src="images/mfr_7.jpg" width="123" height="52" /></a></li>
+       <li><a href="http://sc.admin5.com" target="_blank"><img src="images/mfr_5.jpg" width="123" height="52" /></a><a href="http://sc.admin5.com" target="_blank"><img src="images/mfr_8.jpg" width="123" height="52" /></a></li>
+      </ul>
+    </div>
+    <img class="mr_frBtnR next" src="images/mfrR.jpg" width="28" height="46" />
+  </div>
+  <script language="javascript">
+  $(".mr_frUl ul li img").hover(function(){$(this).css("border-color","#A0C0EB");},function(){$(this).css("border-color","#d8d8d8")});
+  jQuery(".mr_frbox").slide({titCell:"",mainCell:".mr_frUl ul",autoPage:true,effect:"leftLoop",autoPlay:true,vis:4});
+  </script>
+</div>
+<!--<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+  <p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+  <p>来源：<a href="http://sc.admin5.com/" target="_blank">A5源码</a></p>
+</div>-->
+</body>
+</html>
